@@ -2,29 +2,24 @@ import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
 const CartList = (props) => {
-  const { cartList } = props;
-
-  console.log('cartList componente cartList ', cartList);
+  const { cartList, totalCalories } = props;
 
   return (
-    <>
+    <div className="today-container">
       <h2>Today's food</h2>
       <ul>
         {
           cartList && cartList.map((food) => {
-            console.log("valor: ", food)
-            console.log('food.quantity', food.quantity)
-            console.log('food.name', food.name)
             return (
               <li key={uuidv4()}>
-                {food.quantity} {food.name} = {cartList[cartList.length-1]} cal
+                {food.quantity} {food.name} = {food.calories} cal
               </li>
             );
           })
         }
       </ul>
-      <p>Total= {cartList[cartList.length-1]} cal</p>
-    </>
+      <p>Total= {totalCalories} cal</p>
+    </div>
   );
 };
 

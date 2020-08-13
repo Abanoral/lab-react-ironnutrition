@@ -1,26 +1,19 @@
 import React, { useState } from 'react';
 import './FoodBox.style.css';
 
-
 const FoodBox = (props) => {
+  const { id, name, image, calories, addCartList, handleOnClickDelete } = props;
 
-  const { 
-    name,
-    image,
-    calories,
-    quantity,
-    addCartList, 
-  } = props;
-
-  const [quantityState, setQuantityState] = useState(quantity);
+  const [count, setCount] = useState(0);
+  const [quantityState, setQuantityState] = useState(count);
 
   const handleOnClikQuantity = () => {
-    addCartList({name:name, calories: calories, quantity: quantityState})
-  }
-
+    addCartList({ name: name, calories: calories, quantity: quantityState });
+  };
   const handleOnChangeQuantity = (event) => {
-    setQuantityState(event.target.value)
-  }
+    setCount(count + 1);
+    setQuantityState(Number(event.target.value));
+  };
 
   return (
     <div className="box">
@@ -41,10 +34,28 @@ const FoodBox = (props) => {
         <div className="media-right">
           <div className="field has-addons">
             <div className="control">
-              <input className="input" type="number" value={quantityState} onChange={handleOnChangeQuantity} />
+              <input
+                className="input"
+                type="number"
+                onChange={handleOnChangeQuantity}
+                defaultValue={quantityState}
+              />
             </div>
             <div className="control">
-              <button className="button is-info" onClick={() => handleOnClikQuantity()}>+</button>
+              <button
+                className="button is-info"
+                onClick={() => handleOnClikQuantity()}
+              >
+                +
+              </button>
+            </div>
+            <div className="delete">
+              <button
+                className="delete-button"
+                onClick={() => handleOnClickDelete({ name })}
+              >
+                Delete
+              </button>
             </div>
           </div>
         </div>
