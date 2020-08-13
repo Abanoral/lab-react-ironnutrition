@@ -1,0 +1,28 @@
+.addFood-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.addFood-form label {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.addFood-form input {
+  margin-top: 10px;
+  margin-bottom: 14px;
+  border-radius: 10px;
+  border-width: 1px;
+  width: 500px;
+  height: 30px;
+}
+
+.addButton-form {
+  background-color: #03a9f4;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 20px;
+}

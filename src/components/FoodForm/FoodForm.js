@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './FoodForm.css';
 
 const FoodForm = (props) => {
   const { foods, setFoods, setForm } = props;
@@ -12,7 +13,7 @@ const FoodForm = (props) => {
   // When a user clicks the button, a form will appear with fields for a name, number of calories, and an image.
   const handleChange = (event) => {
     let { name, value } = event.target;
-    setFood({ ...food ,[name]: value });
+    setFood({ ...food, [name]: value });
   };
 
   const handleFormSubmit = (event) => {
@@ -23,11 +24,11 @@ const FoodForm = (props) => {
       calories: '',
       iamge: '',
     });
-    setForm(false)
+    setForm(false);
   };
 
   return (
-    <form onSubmit={handleFormSubmit}>
+    <form className="addFood-form" onSubmit={handleFormSubmit}>
       <label>Name:</label>
       <input
         type="text"
@@ -52,7 +53,9 @@ const FoodForm = (props) => {
         onChange={(e) => handleChange(e)}
       />
 
-      <button type="submit">Add new food</button>
+      <button className="addButton-form" type="submit">
+        Add new food
+      </button>
     </form>
   );
 };

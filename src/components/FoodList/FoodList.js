@@ -70,37 +70,40 @@ const FoodList = () => {
           value={search}
           onChange={(e) => handleChange(e)}
         />
-
-        <button onClick={() => handleClickAddFood()} className="add-button">
-          Add food
-        </button>
+        {form ? null : (
+          <button onClick={() => handleClickAddFood()} className="add-button">
+            Add food
+          </button>
+        )}
       </div>
 
       <div className="main-container">
-        <div className="container-food">
-          {form ? (
-            <FoodForm foods={foods} setFoods={setFoods} setForm={setForm} />
-          ) : (
-            foods.map(
-              (food) =>
-                food && (
-                  <FoodBox
-                    key={uuidv4()}
-                    {...food}
-                    addCartList={addCartList}
-                    handleOnClickDelete={handleOnClickDelete}
-                  />
-                )
-            )
-          )}
-        </div>
-        <div>
-          <CartList
-            cartList={cartList}
-            setForm={setForm}
-            totalCalories={totalCalories}
-          />
-        </div>
+        {form ? (
+          <FoodForm foods={foods} setFoods={setFoods} setForm={setForm} />
+        ) : (
+          <>
+            <div className="container-food">
+              {foods.map(
+                (food) =>
+                  food && (
+                    <FoodBox
+                      key={uuidv4()}
+                      {...food}
+                      addCartList={addCartList}
+                      handleOnClickDelete={handleOnClickDelete}
+                    />
+                  )
+              )}
+            </div>
+            <div>
+              <CartList
+                cartList={cartList}
+                setForm={setForm}
+                totalCalories={totalCalories}
+              />
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

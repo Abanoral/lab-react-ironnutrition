@@ -1,11 +1,12 @@
 .main-container {
   display: flex;
+  justify-content: center;
 }
 
 .container-food {
   display: flex;
   flex-direction: column;
-  margin-left: 29%;
+  margin-left: 24%;
   margin-right: 10%;
 }
 
