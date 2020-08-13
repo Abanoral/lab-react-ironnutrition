@@ -1,0 +1,47 @@
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 33%;
+}
+
+.media {
+  display: flex;
+  width: 500px;
+  margin-top: 20px;
+  box-shadow: 2px 1px 21px -1px #888888;
+}
+
+.media-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.field,
+.control {
+  display: flex;
+}
+
+.input {
+  width: 35px;
+  border: none;
+}
+
+.button {
+  width: 100%;
+  padding: 40px;
+  background-color: #03a9f4;
+  border: none;
+}
+
+.media-left {
+  display: flex;
+  flex-direction: row;
+}
+
+.imageFood {
+  width: 95px;
+  height: 95px;
+  margin: 0px 15px 0 0;
+}
